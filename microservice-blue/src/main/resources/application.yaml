@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: blue-service
+  cloud:
+    consul:
+      discovery:
+        instance-id: ${spring.application.name}.${random.value}
+    loadbalancer:
+      ribbon:
+        enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+server:
+  port: 0
+
+service:
+  voteUrl: http://vote-service/random-numbers
+
